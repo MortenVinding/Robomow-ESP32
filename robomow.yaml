@@ -1,0 +1,114 @@
+switch:
+  - platform: template
+    switches:
+      robomowble:
+        value_template: "{{ is_state_attr('sensor.robomow', 'cBLEsw', 'lightgreen') }}"
+        turn_on:
+          service: script.turn_on
+          entity_id: script.robomow_ble_on
+        turn_off:
+          service: script.turn_on
+          entity_id: script.robomow_ble_off2
+
+      robomowbleweekprogramm:
+        value_template: "{{ is_state_attr('sensor.robomow_once', '50', '1') }}"
+        turn_on:
+          service: script.turn_on
+          entity_id: script.robomowweekon2
+        turn_off:
+          service: script.turn_on
+          entity_id: script.robomowweekoff
+
+rest_command:
+  robomowbleoff:
+    url: "http://<username>:<password>@<IP>/setcmds?250=0"
+  robomowbleon:
+    url: "http://<username>:<password>@<IP>/setcmds?250=1"
+  robomowweekoff:
+    url: "http://<username>:<password>@<IP>/setcmds?50=0"
+  robomowweekon:
+    url: "http://<username>:<password>@<IP>/setcmds?50=1"
+  robomowkante:
+    url: "http://<username>:<password>@<IP>/setcmds?1=1"
+  robomowflaeche:
+    url: "http://<username>:<password>@<IP>/setcmds?3=1"
+  robomowhome:
+    url: "http://<username>:<password>@<IP>/setcmds?2=1"
+  robomowstop:
+    url: "http://<username>:<password>@<IP>/setcmds?4=1"
+
+sensor:
+  - platform: rest
+    name: robomow
+    json_attributes:
+      - "0"
+      - "5"
+      - "6"
+      - "11"
+      - "12"
+      - "13"
+      - "14"
+      - "cDSnear"
+      - "blesw"
+      - "cBLEsw"
+      - "rssi"
+    resource: http://<username>:<password>@<IP>/renew
+    method: GET
+    scan_interval: 300
+    value_template: "{{ value_robomow.x }}"
+
+  - platform: rest
+    name: robomow_once
+    json_attributes:
+      - "50"
+    resource: http://<username>:<password>@<IP>/once
+    method: GET
+    scan_interval: 3600
+    value_template: "{{ value_robomow.once }}"
+
+  - platform: rest
+    name: robomow_console
+    json_attributes:
+      - "fheap"
+      - "ifr_msg_isw"
+      - "ifr_msg_msw"
+      - "ifr_msg_ssw"
+      - "gpslat"
+      - "gpslon"
+    resource: http://<username>:<password>@<IP>/console
+    method: GET
+    scan_interval: 300
+    value_template: "{{ value_robomow.x }}"
+
+  - platform: template
+    sensors:
+      location:
+        friendly_name: "Robomow location"
+        value_template: "{{state_attr('sensor.robomow_console', 'gpslat') }},{{ state_attr('sensor.robomow_console', 'gpslon') }}"
+        attribute_templates:
+          latitude: "{{state_attr('sensor.robomow_console', 'gpslat') }}"
+          longitude: "{{ state_attr('sensor.robomow_console', 'gpslon') }}"
+      robomow_soc:
+        friendly_name: "Robomow battery SoC"
+        value_template: "{{state_attr('sensor.robomow', '0') }}"
+      robomow_cdsnear:
+        friendly_name: "Robomow cDSnear"
+        value_template: "{{state_attr('sensor.robomow', 'cDSnear') }}"
+      robomow_status:
+        friendly_name: "Robomow current status"
+        value_template: "{{state_attr('sensor.robomow', '6') }}"
+      robomow_timeleft:
+        friendly_name: "Robomow cutting time left"
+        value_template: "{{state_attr('sensor.robomow', '11') }}"
+      robomow_nextstart:
+        friendly_name: "Robomow cutting next start"
+        value_template: "{{state_attr('sensor.robomow', '5') }}"
+      robomow_moisture:
+        friendly_name: "Robomow moisture"
+        value_template: "{{state_attr('sensor.robomow', '13') }}"
+      robomow_percentagecut:
+        friendly_name: "Robomow percentage cut"
+        value_template: "{{state_attr('sensor.robomow', '12') }}"
+      robomow_rssi:
+        friendly_name: "Robomow WiFi rssi"
+        value_template: "{{state_attr('sensor.robomow', 'rssi') }}"

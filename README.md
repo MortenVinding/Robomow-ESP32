@@ -19,3 +19,12 @@ Instructions:
 9. Go to http://<IP>
 10. Go to the Configuration tab and input your robots bluetooth name under "SSID" and the mainboard serial number under "Mainboard SN"
 12. Now it should connect to your robot and show all kinds of data.
+
+
+To add it to Home Assisntant:
+
+Copy robomow.yaml to config/robomow.yaml
+
+Add this to config/configuration.yaml
+homeassistant:
+  customize: !include robomow.yaml

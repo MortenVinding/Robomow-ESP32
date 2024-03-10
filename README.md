@@ -1,12 +1,12 @@
 # Robomow-ESP32
-ESP32 based bluetooth Robomow controller
+##ESP32 based bluetooth Robomow controller
 
 Based on https://www.skyynet.de/mowgli_connect.php
 
 This is a modification of the original binary file to English.
 Since there is only a binary file, I have made a ugly script that simply replaces all (or most) German text with English translations, and recalculates the checksums.
 
-Instructions:
+##Instructions:
 
 1. Download https://www.skyynet.de/ftp/mspitzel_v105.zip
 2. Unzip and load it in the Arduino IDE
@@ -20,8 +20,7 @@ Instructions:
 10. Go to the Configuration tab and input your robots bluetooth name under "SSID" and the mainboard serial number under "Mainboard SN"
 12. Now it should connect to your robot and show all kinds of data.
 
-
-To add it to Home Assisntant:
+##To add it to Home Assisntant:
 
 Copy robomow.yaml to config/robomow.yaml
 

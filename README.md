@@ -6,6 +6,8 @@ Based on https://www.skyynet.de/mowgli_connect.php
 This is a modification of the original binary file to English.
 Since there is only a binary file, I have made a ugly script that simply replaces all (or most) German text with English translations, and recalculates the checksums.
 
+![](images/settings.png)
+
 ## Instructions:
 
 1. Download https://www.skyynet.de/ftp/mspitzel_v105.zip
@@ -21,6 +23,8 @@ Since there is only a binary file, I have made a ugly script that simply replace
 12. Now it should connect to your robot and show all kinds of data.
 
 ## To add it to Home Assisntant:
+
+![](images/homeassistant.png)
 
 Copy robomow.yaml to config/robomow.yaml
 

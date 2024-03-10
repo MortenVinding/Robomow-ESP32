@@ -25,7 +25,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 ## To add it to Home Assisntant:
 
 ![](images/homeassistant.png | hight = 25 )
-[[ images/homeassistant.png | height = 25% ]]
+[[ images/homeassistant.png | height = 100px ]]
 
 Copy robomow.yaml to config/robomow.yaml
 

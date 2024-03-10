@@ -23,9 +23,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 12. Now it should connect to your robot and show all kinds of data.
 
 ## To add it to Home Assisntant:
-
-![](images/homeassistant.png | hight = 25 )
-[[ images/homeassistant.png | height = 100px ]]
+<img src="images/homeassistant.png" width=50% height=50%>
 
 Copy robomow.yaml to config/robomow.yaml
 

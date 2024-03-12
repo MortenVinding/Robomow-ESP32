@@ -1,7 +1,7 @@
 # Robomow-ESP32
 ## ESP32 based bluetooth Robomow controller
 
-Based on https://www.skyynet.de/mowgli_connect.php
+Based on ![](https://www.skyynet.de/mowgli_connect.php)
 
 This is a modification of the original binary file to English.
 Since there is only a binary file, I have made a ugly script that simply replaces all (or most) German text with English translations, and recalculates the checksums.
@@ -10,7 +10,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 
 ## Instructions:
 
-1. Download https://www.skyynet.de/ftp/mspitzel_v105.zip
+1. Download ![](https://www.skyynet.de/ftp/mspitzel_v105.zip)
 2. Unzip and load it in the Arduino IDE
 3. Modify def_ssid and def_pass to match your WIFI's SSID and password
 4. Modify http_username and http_password to what you want
@@ -31,3 +31,13 @@ Copy robomow.yaml to config/robomow.yaml
 Add this to config/configuration.yaml
 homeassistant:
   customize: !include robomow.yaml
+
+## Hardware:
+You need a ESP32 with PSRAM, so called WROVER module.
+I bought a LOLIN as mentioned from !(Aliexpress)[https://www.aliexpress.com/item/32883116057.html]
+but I guess any with PSRAM would work.
+
+I didn't wanted GPS to begin with, but since it works so well and the GPS module is so cheap I also got ![this](https://www.aliexpress.com/item/914261817.html)
+
+I guess it would be better with a module that works with all 5 possitioning systems: GPS (US), QZSS (Japan), BEIDOU (China), GALILEO (EU), and GLONASS (Russia),
+but I wasn't sure the protocol is compatible (all though the !(NMEA 0183)[https://en.wikipedia.org/wiki/NMEA_0183] protocol seems to be universal).

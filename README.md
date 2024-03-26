@@ -20,7 +20,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 8. Wait! it takes about 2 full minutes before it returns "OK"
 9. If you get "Fehler" just try again.
 10. Go to http://<IP>
-11. Go to the Configuration tab and input your robots bluetooth name under "SSID" and the mainboard serial number under "Mainboard SN"
+11. Go to the Configuration tab and input your robots bluetooth name under "SSID" and the [mainboard serial number](MBSERIAL.md) under "Mainboard SN"
 12. Now it should connect to your robot and show all kinds of data.
 
 ## To add it to Home Assisntant:

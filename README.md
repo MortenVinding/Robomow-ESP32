@@ -26,11 +26,12 @@ Since there is only a binary file, I have made a ugly script that simply replace
 ## To add it to Home Assisntant:
 <img src="images/homeassistant.png" width=50% height=50%>
 
-Copy robomow.yaml to config/robomow.yaml
+Copy robomow.yaml to config/packages/robomow.yaml
+(make dir config/packages if non existent).
 
 Add this to config/configuration.yaml
 homeassistant:
-  customize: !include robomow.yaml
+  packages: !include_dir_named packages
 
 ## Hardware:
 You need a ESP32 with PSRAM, so called WROVER module.

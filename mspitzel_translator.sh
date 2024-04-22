@@ -27,9 +27,15 @@ sed -i "" 's|Konto Sch..ssel:|Konto token    :|g' $TRFILE
 sed -i "" 's|Kanten..berstand|Edge overhang   |g' $TRFILE
 sed -i "" 's|Sto..stange Empfindlichkeit|Bumper sensitivity         |g' $TRFILE
 sed -i "" 's|Keine Ladespannung erkannt\.|No chagring power detected\.|g' $TRFILE
+sed -i "" 's|Stopptaste gedr..ckt|STOP button pushed  |g' $TRFILE
+sed -i "" 's|Kein Drahtsignal w..hrend Fahrt, kein Stopp|No wire signal while mowing, not yet stoppe|g' $TRFILE
 sed -i "" 's|Einmalige Einrichtung\. Automatischer Betrieb gestoppt|One-time Setup\. Automatic Operation Stopped          |g' $TRFILE
+sed -i "" 's|Geschwindigkeit zu hoch, wahrscheinlich schlechter Sattelitenfix\.|Apparent speed too high, probably poor satellite fix             |g' $TRFILE
 sed -i "" 's|Einmalige Einrichtung\. Hindernisereignis|One-time Setup\. Obstacle Event          |g' $TRFILE
 sed -i "" 's|Akku laden, automatischer Betrieb|Charge battery, Automatic operati|g' $TRFILE
+sed -i "" 's|M..her sehr stark geneigt|Tilt is detected         |g' $TRFILE
+sed -i "" 's|Zur Station, aber Akku noch ok\.|Battery to low to return to bas|g' $TRFILE
+sed -i "" 's|Akkuentladezeit ..berschritten|Battery discharge time exceede|g' $TRFILE
 sed -i "" 's|Niedrige Akkuspannung|Low battery voltage  |g' $TRFILE
 sed -i "" 's|Stopptaste|Stopbutton|g' $TRFILE
 sed -i "" 's|M..hfrequenz|Frequency   |g' $TRFILE
@@ -41,15 +47,14 @@ sed -i "" 's|Automatische Abfahrt deaktiviert|Automatic Departure Disabled    |g
 sed -i "" 's|Zu niedrige Temperatur|Temperature Too Low   |g' $TRFILE
 sed -i "" 's|Systemschalter aus|System switch off\.|g' $TRFILE
 sed -i "" 's|Inaktive Zeit erreicht|Inactive Time Reached\.|g' $TRFILE
+#sed -i "" 's|Regen erkannt w..hrend Einsatz|Rain detected during mowing...|g' $TRFILE
+sed -i "" 's|Regen erkannt w..hrend Einsatz|Rain detected during mowing  _|g' $TRFILE
 sed -i "" 's|Regen erkannt und bleibt in Station|Auto departure disabled due to rain|g' $TRFILE
 sed -i "" 's|Automatik gestoppt, suche Basisstation, Vorderrad zu lange in der Luft|Automatik gestoppt, suche Basisstation, Vorderrad zu lange in der Luft|g' $TRFILE
 sed -i "" 's|Automatik gestoppt, Vorderrad zu lange in der Luft|Automatik gestoppt, Vorderrad zu lange in der Luft|g' $TRFILE
 sed -i "" 's|Zeit zum Laden|Time to charge|g' $TRFILE
 sed -i "" 's|Stecken geblieben|Stayed stuck.    |g' $TRFILE
 sed -i "" 's|R..der mehrfach durchgedreht|Wheels spun multiple times  |g' $TRFILE
-#sed -i "" 's|R..der mehrfach durchgedreht|stuck.      Wheels spun multiple times  |g' $TRFILE
-#sed -i "" 's|Stecken geblieben. R..der mehrfach durchgedreht|Stecken geblieben. R..der mehrfach durchgedreht|g' $TRFILE
-sed -i "" 's|Zur Station, aber Akku noch ok\.|Zur Station, aber Akku noch ok\.|g' $TRFILE
 sed -i "" 's|Akku aufladen|ChargeBattery|g' $TRFILE
 sed -i "" 's|Stopp per App\.|Stop via App  |g' $TRFILE
 sed -i "" 's|Roboter ist gefangen|Robot is stuck      |g' $TRFILE
@@ -85,7 +90,7 @@ sed -i "" 's|BLE automatisch schalten|BLE switch automatically|g' $TRFILE
 sed -i "" 's|Automatische Drehrichtung|Automa rotation direction|g' $TRFILE
 sed -i "" 's|Nachricht gesendet|Message sent      |g' $TRFILE
 sed -i "" 's|Antwort|Answer |g' $TRFILE
-sed -i "" 's|Nutzer Robostart au..erhalb Begrenzung|User Robotstart outside limit         |g' $TRFILE
+sed -i "" 's|Nutzer Robostart au..erhalb Begrenzung|User attempt start outside boundary   |g' $TRFILE
 sed -i "" 's|Antwortzeit in ms:|Responstime in ms:|g' $TRFILE
 sed -i "" 's|Sendezeitabstand in ms:|Transmi interval in ms:|g' $TRFILE
 sed -i "" 's|Akkuladung:|Battcharge:|g' $TRFILE
@@ -146,7 +151,6 @@ sed -i "" 's|Akku Laufzeitprotokoll|Battery run time log  |g' $TRFILE
 sed -i "" 's|Maeher Ereignis|Mower Event    |g' $TRFILE
 sed -i "" 's|Auszug Batterie-Zellen|Auszug Batterie-Zellen|g' $TRFILE
 sed -i "" 's|ZEIT_ZEILEN:|ZEIT_ZEILEN:|g' $TRFILE
-#sed -i "" 's|{"0":\[\["Zeit","Zelle 1","Zelle 2","Zelle 3","Zelle 4","Zelle 5","Zelle 6","Zelle 7","Zelle 8"\]|{"0":\[\["Zeit","Zelle 1","Zelle 2","Zelle 3","Zelle 4","Zelle 5","Zelle 6","Zelle 7","Zelle 8"\]|g' $TRFILE
 sed -i "" 's|akkutabelle\.bin|akkutabelle\.bin|g' $TRFILE
 sed -i "" 's|Separat A|Separat A|g' $TRFILE
 sed -i "" 's|Separat B|Separat B|g' $TRFILE
@@ -170,7 +174,6 @@ sed -i "" 's|rechtes|rechtes|g' $TRFILE
 sed -i "" 's|Authentisieren fehlgeschlagen!|Authentication failed        !|g' $TRFILE
 sed -i "" 's|Versuche zur GPS-Datenerfassung:|Trying to get GPS fix          :|g' $TRFILE
 sed -i "" 's|Satelliten:|Satellites:|g' $TRFILE
-sed -i "" 's|Geschwindigkeit zu hoch, wahrscheinlich schlechter Sattelitenfix\.|Speed too high, probably poor satellite fix                      |g' $TRFILE
 sed -i "" 's|<br>Kein oder schlechter Sattelitenempfang\.|<br>No or poor satellite reception         |g' $TRFILE
 sed -i "" 's|<br>GPS Geschwindigkeit :|<br>GPS Speed           :|g' $TRFILE
 sed -i "" 's|Abstand zur Basis :|Distance to Base  :|g' $TRFILE
@@ -359,10 +362,11 @@ sed -i "" 's|Kapazität|Capacity  |g' $TRFILE
 sed -i "" 's|automatisch|automatic  |g' $TRFILE
 sed -i "" 's|Aus|Off|g' $TRFILE
 sed -i "" 's|Ein|On |g' $TRFILE
+#sed -i "" 's|Stecken geblieben. R..der mehrfach durchgedreht|Stecken geblieben. R..der mehrfach durchgedreht|g' $TRFILE
 
 echo "Create truncated file, without crc (33th last byte) and hash (last 32 bytes)"
 head -c $(( $(wc -c $TRFILE | cut -d " " -f 2) - 33)) $TRFILE > $TRFILE.correctcrchash
-cp ${$TRFILE}.correctcrchash ${TRFILE}.temp
+cp ${TRFILE}.correctcrchash ${TRFILE}.temp
 
 echo "Create temp. file with correct crc"
 esptool.py image_info --version 2 $TRFILE | grep -a "Checksum\|Validation hash" | tr '\n' ' ' | cut -d " " -f6,9 | tr -d ') ' | xxd -r -p >> ${TRFILE}.temp
@@ -370,7 +374,7 @@ esptool.py image_info --version 2 $TRFILE | grep -a "Checksum\|Validation hash" 
 echo "Create final file with both crc and hash"
 esptool.py image_info --version 2 ${TRFILE}.temp | grep -a "Checksum\|Validation hash" | tr '\n' ' ' | cut -d " " -f2,6 | tr -d ' ' | xxd -r -p >> ${TRFILE}.correctcrchash
 
-mv ${TRFILE}.correctcrchash ${$TRFILE}
+mv ${TRFILE}.correctcrchash ${TRFILE}
 
 echo "Showing off"
 esptool.py image_info --version 2 ${TRFILE}

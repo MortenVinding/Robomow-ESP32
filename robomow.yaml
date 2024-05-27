@@ -1,3 +1,7 @@
+# Add to or create a secrets.yaml file in the config dir and put:
+# robomow_user: <username>
+# robomow_pass: <password>
+
 switch:
   - platform: template
     switches:
@@ -21,24 +25,46 @@ switch:
 
 rest_command:
   robomowbleoff:
-    url: "http://<username>:<password>@<IP>/setcmds?250=0"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?250=0"
   robomowbleon:
-    url: "http://<username>:<password>@<IP>/setcmds?250=1"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?250=1"
   robomowweekoff:
-    url: "http://<username>:<password>@<IP>/setcmds?50=0"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?50=0"
   robomowweekon:
-    url: "http://<username>:<password>@<IP>/setcmds?50=1"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?50=1"
   robomowkante:
-    url: "http://<username>:<password>@<IP>/setcmds?1=1"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?1=1"
   robomowflaeche:
-    url: "http://<username>:<password>@<IP>/setcmds?3=1"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?3=1"
   robomowhome:
-    url: "http://<username>:<password>@<IP>/setcmds?2=1"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?2=1"
   robomowstop:
-    url: "http://<username>:<password>@<IP>/setcmds?4=1"
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    url: "http://192.168.0.133/setcmds?4=1"
 
 sensor:
   - platform: rest
+    authentication: basic
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    scan_interval: 300
+    method: GET
+    resource: http://192.168.0.133/renew
     name: robomow
     json_attributes:
       - "0"
@@ -52,21 +78,24 @@ sensor:
       - "blesw"
       - "cBLEsw"
       - "rssi"
-    resource: http://<username>:<password>@<IP>/renew
-    method: GET
-    scan_interval: 300
     value_template: "{{ value_robomow.x }}"
 
   - platform: rest
+    authentication: basic
+    username: !secret robomow_user
+    password: !secret robomow_pass
+    resource: http://192.168.0.133/once
     name: robomow_once
     json_attributes:
       - "50"
-    resource: http://<username>:<password>@<IP>/once
     method: GET
     scan_interval: 3600
     value_template: "{{ value_robomow.once }}"
 
   - platform: rest
+    authentication: basic
+    username: !secret robomow_user
+    password: !secret robomow_pass
     name: robomow_console
     json_attributes:
       - "fheap"
@@ -75,40 +104,46 @@ sensor:
       - "ifr_msg_ssw"
       - "gpslat"
       - "gpslon"
-    resource: http://<username>:<password>@<IP>/console
+    resource: http://192.168.0.133/console
     method: GET
-    scan_interval: 300
+    scan_interval: 5
     value_template: "{{ value_robomow.x }}"
 
   - platform: template
     sensors:
       location:
-        friendly_name: "Robomow location"
+        friendly_name: "Location"
         value_template: "{{state_attr('sensor.robomow_console', 'gpslat') }},{{ state_attr('sensor.robomow_console', 'gpslon') }}"
         attribute_templates:
           latitude: "{{state_attr('sensor.robomow_console', 'gpslat') }}"
           longitude: "{{ state_attr('sensor.robomow_console', 'gpslon') }}"
       robomow_soc:
-        friendly_name: "Robomow battery SoC"
-        value_template: "{{state_attr('sensor.robomow', '0') }}"
+        friendly_name: "Battery SoC"
+        unit_of_measurement: "%"
+        device_class: battery
+        # Need to remove last 2 character since HA will not accept " %"
+        value_template: "{{state_attr('sensor.robomow', '0')[:-2] }}"
       robomow_cdsnear:
-        friendly_name: "Robomow cDSnear"
+        friendly_name: "cDSnear"
         value_template: "{{state_attr('sensor.robomow', 'cDSnear') }}"
       robomow_status:
-        friendly_name: "Robomow current status"
+        friendly_name: "Current status"
         value_template: "{{state_attr('sensor.robomow', '6') }}"
       robomow_timeleft:
-        friendly_name: "Robomow cutting time left"
+        friendly_name: "Cutting time left"
         value_template: "{{state_attr('sensor.robomow', '11') }}"
       robomow_nextstart:
-        friendly_name: "Robomow cutting next start"
+        friendly_name: "Cutting next start"
         value_template: "{{state_attr('sensor.robomow', '5') }}"
       robomow_moisture:
-        friendly_name: "Robomow moisture"
+        friendly_name: "Moisture"
+        unit_of_measurement: "%"
         value_template: "{{state_attr('sensor.robomow', '13') }}"
       robomow_percentagecut:
-        friendly_name: "Robomow percentage cut"
-        value_template: "{{state_attr('sensor.robomow', '12') }}"
+        friendly_name: "Percentage cut"
+        unit_of_measurement: "%"
+        value_template: "{{state_attr('sensor.robomow', '12')[:-2] }}"
       robomow_rssi:
-        friendly_name: "Robomow WiFi rssi"
+        friendly_name: "WiFi rssi"
+        unit_of_measurement: "dBm"
         value_template: "{{state_attr('sensor.robomow', 'rssi') }}"

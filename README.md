@@ -14,7 +14,8 @@ Since there is only a binary file, I have made a ugly script that simply replace
 2. Unzip
 3. Modify def_ssid and def_pass to match your WIFI's SSID and password in src/mspitzelAPconnect.ino
 4. Modify http_username and http_password to what you want
-5. Load it in the Arduino IDE with the following <details>
+5. Load it in the Arduino IDE with the following
+<details>
   <summary>settings</summary>
 Board: LOLIN D32 PRO
 Upload Speed: 921600
@@ -23,8 +24,8 @@ Partition Scheme: Minimal SPIFFS (Large APPS with OTA)
 Core Debug Level: None
 PSRAM: Enabled
 Port : where your LOLIN is connected
-</details> or:
-   compile and install with [platform.io](https://docs.platformio.org/en/stable/core/installation/index.html) using "pio run --target upload"
+</details>
+   or compile and install with [platform.io](https://docs.platformio.org/en/stable/core/installation/index.html) using "pio run --target upload"
 6. When the ESP32 connects to you WiFi, go to http://<IP>:8080
 7. Upload my modified binary file: mspitzel.ino.d32_pro_en.bin
 8. Wait! it takes about 2 full minutes before it returns "OK"

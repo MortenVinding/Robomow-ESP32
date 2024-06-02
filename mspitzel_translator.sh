@@ -23,12 +23,14 @@ sed -i "" 's|Zur..ck vom Draht|Near Wire Follow |g' $TRFILE
 sed -i "" 's|Zur..ck v. Draht|Near Wire Follow|g' $TRFILE
 sed -i "" 's|km-Z..hler|Odometer  |g' $TRFILE
 sed -i "" 's|Au..erhalb Begrenzung|outside boundary     |g' $TRFILE
+sed -i "" 's|M..her im Einsatz oder nur nicht in Ladestation|Mower in use or not yet in charging station    |g' $TRFILE
 sed -i "" 's|Konto Sch..ssel:|Konto token    :|g' $TRFILE
 sed -i "" 's|Kanten..berstand|Edge overhang   |g' $TRFILE
 sed -i "" 's|Sto..stange Empfindlichkeit|Bumper sensitivity         |g' $TRFILE
 sed -i "" 's|Keine Ladespannung erkannt\.|No chagring power detected\.|g' $TRFILE
 sed -i "" 's|Stopptaste gedr..ckt|STOP button pushed  |g' $TRFILE
 sed -i "" 's|Kein Drahtsignal w..hrend Fahrt, kein Stopp|No wire signal while mowing, not yet stoppe|g' $TRFILE
+sed -i "" 's|Kein Drahtsignal w..hrend Automatik|No wire signal while auto operation|g' $TRFILE
 sed -i "" 's|Einmalige Einrichtung\. Automatischer Betrieb gestoppt|One-time Setup\. Automatic Operation Stopped          |g' $TRFILE
 sed -i "" 's|Geschwindigkeit zu hoch, wahrscheinlich schlechter Sattelitenfix\.|Apparent speed too high, probably poor satellite fix             |g' $TRFILE
 sed -i "" 's|Einmalige Einrichtung\. Hindernisereignis|One-time Setup\. Obstacle Event          |g' $TRFILE
@@ -39,7 +41,9 @@ sed -i "" 's|Akkuentladezeit ..berschritten|Battery discharge time exceede|g' $T
 sed -i "" 's|Niedrige Akkuspannung|Low battery voltage  |g' $TRFILE
 sed -i "" 's|Stopptaste|Stopbutton|g' $TRFILE
 sed -i "" 's|M..hfrequenz|Frequency   |g' $TRFILE
+sed -i "" 's|M..hereinstellunen ..ndern.|Change mower settings.     |g' $TRFILE
 sed -i "" 's|M..hstunden|Mowing time|g' $TRFILE
+sed -i "" 's|M..her Basisstation verlassen|Mower left the basestation   |g' $TRFILE
 sed -i "" 's|Inseln|Island|g' $TRFILE
 sed -i "" 's|M..herdaten|Robot data |g' $TRFILE
 sed -i "" 's|Manuelle IP-Einstellungen|Manual   IP-Einstellungen|g' $TRFILE
@@ -67,7 +71,7 @@ sed -i "" 's|Nein|No  |g' $TRFILE
 sed -i "" 's|Basis|Basis|g' $TRFILE
 sed -i "" 's|Turbo m..hen|Turbo mow   |g' $TRFILE
 sed -i "" 's|Startpunkt|StartPoint|g' $TRFILE
-sed -i "" 's|Nicht behindert|Nicht behindert|g' $TRFILE
+sed -i "" 's|Nicht behindert|Not blocked    |g' $TRFILE
 sed -i "" 's|Innerhalb inaktiver Zeit|Within inactive time    |g' $TRFILE
 sed -i "" 's|Regen wurde erkannt|Rain was detected  |g' $TRFILE
 sed -i "" 's|Demo-Modus aktiviert|Demo mode activated |g' $TRFILE
@@ -296,7 +300,7 @@ sed -i "" 's|Regensensor|Rain sensor|g' $TRFILE
 sed -i "" 's|Inaktiv bis|Inactiv To |g' $TRFILE
 sed -i "" 's|Inaktiv von|InactivFrom|g' $TRFILE
 sed -i "" 's|Inaktiv am|Inaktiv am|g' $TRFILE
-sed -i "" 's|Ausfahrt behindert:|Operation obstruct:|g' $TRFILE
+sed -i "" 's|Ausfahrt behindert:|Operation blocked: |g' $TRFILE
 sed -i "" 's|Zur Station|Zur Station|g' $TRFILE
 sed -i "" 's|Akkuladung :|Bat. charg :|g' $TRFILE
 sed -i "" 's|Vorderrad Schlupf|Frontwheel slip  |g' $TRFILE
@@ -334,7 +338,7 @@ sed -i "" 's|Aktiviert|Enabled  |g' $TRFILE
 sed -i "" 's|Inaktive|Inactive|g' $TRFILE
 sed -i "" 's|Tage|Days|g' $TRFILE
 sed -i "" 's|Fehler|Error |g' $TRFILE
-sed -i "" 's|Uhr|Uhr|g' $TRFILE
+sed -i "" 's|Uhr|   |g' $TRFILE
 sed -i "" 's|Std\.|Hour|g' $TRFILE
 sed -i "" 's|Minuten|Minutes|g' $TRFILE
 sed -i "" 's|Ausfahrt|Exit    |g' $TRFILE

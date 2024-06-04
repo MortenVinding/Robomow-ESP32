@@ -17,14 +17,19 @@ sed -i "" 's|Scan Ergebnis:|Scan Results :|g' $TRFILE
 sed -i "" 's|Sende Kommando zum M..her|Allow control mower      |g' $TRFILE
 sed -i "" 's|Gefunden Roboter-BLE:|Found Robot-BLE     :|g' $TRFILE
 sed -i "" 's|Fehler Mailversand,|Error sending mail,|g' $TRFILE
+sed -i "" 's|M..hzeit abgeschlossen|Mowing time completed |g' $TRFILE
 sed -i "" 's|Gehe zur Station per App\.|Go to station via App    |g' $TRFILE
+sed -i "" 's|Akkukapazit..t Zeit..berschreitung|Battery capacity time exceeded    |g' $TRFILE
+sed -i "" 's|Akku l..dt/balanciert|Battery balancing    |g' $TRFILE
+sed -i "" 's|Akku l..dt|Charging  |g' $TRFILE
 sed -i "" 's|Vorderrad Problem|FrontwheelProblem|g' $TRFILE
 sed -i "" 's|Zur..ck vom Draht|Near Wire Follow |g' $TRFILE
 sed -i "" 's|Zur..ck v. Draht|Near Wire Follow|g' $TRFILE
 sed -i "" 's|km-Z..hler|Odometer  |g' $TRFILE
 sed -i "" 's|Au..erhalb Begrenzung|outside boundary     |g' $TRFILE
 sed -i "" 's|M..her im Einsatz oder nur nicht in Ladestation|Mower in use or not yet in charging station    |g' $TRFILE
-sed -i "" 's|Konto Sch..ssel:|Konto token    :|g' $TRFILE
+sed -i "" 's|..berhitzung M..hmotor - Erholungsversuch|Mowermotor overheating -trying to recover|g' $TRFILE
+sed -i "" 's|Konto Sch..ssel:|Account token:  |g' $TRFILE
 sed -i "" 's|Kanten..berstand|Edge overhang   |g' $TRFILE
 sed -i "" 's|Sto..stange Empfindlichkeit|Bumper sensitivity         |g' $TRFILE
 sed -i "" 's|Keine Ladespannung erkannt\.|No chagring power detected\.|g' $TRFILE
@@ -195,7 +200,7 @@ sed -i "" 's|WiFi verbunden; Wait|WiFi connected; Wait|g' $TRFILE
 sed -i "" 's|BLE automatisch ausgeschalet|BLE automatically turned off|g' $TRFILE
 sed -i "" 's|BLE automatisch eingeschalet|BLE automatically turned on |g' $TRFILE
 sed -i "" 's|Fortschritt: |Progress   : |g' $TRFILE
-sed -i "" 's|Akkuladung vor Einsatz\.|Akkuladung vor Einsatz\.|g' $TRFILE
+sed -i "" 's|Akkuladung vor Einsatz\.|Charge before operation|g' $TRFILE
 sed -i "" 's|Zeit vor Robotereinsatz\.|Zeit vor Robotereinsatz\.|g' $TRFILE
 sed -i "" 's|automatisch BLE schalten\.|automatisch BLE schalten\.|g' $TRFILE
 sed -i "" 's|GPS Warnmeldungen\.|GPS Warnmeldungen\.|g' $TRFILE
@@ -238,7 +243,6 @@ sed -i "" 's|Netzwerkzeit (NTP)|Network time (NTP)|g' $TRFILE
 sed -i "" 's|HTTP|HTTP|g' $TRFILE
 sed -i "" 's|WiFi|WiFi|g' $TRFILE
 sed -i "" 's|Mainboard|Mainboard|g' $TRFILE
-sed -i "" 's|Akku|Akku|g' $TRFILE
 sed -i "" 's|Horizontal W.|Horizontal A.|g' $TRFILE
 sed -i "" 's|Vertikal Winkel|Vertical angle |g' $TRFILE
 sed -i "" 's|Linear Ampl\.|Linear Ampl\.|g' $TRFILE

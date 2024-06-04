@@ -29,7 +29,7 @@ sed -i "" 's|km-Z..hler|Odometer  |g' $TRFILE
 sed -i "" 's|Au..erhalb Begrenzung|outside boundary     |g' $TRFILE
 sed -i "" 's|M..her im Einsatz oder nur nicht in Ladestation|Mower in use or not yet in charging station    |g' $TRFILE
 sed -i "" 's|..berhitzung M..hmotor - Erholungsversuch|Mowermotor overheating -trying to recover|g' $TRFILE
-sed -i "" 's|Konto Sch..ssel:|Account token:  |g' $TRFILE
+sed -i "" 's|Konto Schl..ssel|Account token:  |g' $TRFILE
 sed -i "" 's|Kanten..berstand|Edge overhang   |g' $TRFILE
 sed -i "" 's|Sto..stange Empfindlichkeit|Bumper sensitivity         |g' $TRFILE
 sed -i "" 's|Keine Ladespannung erkannt\.|No chagring power detected\.|g' $TRFILE

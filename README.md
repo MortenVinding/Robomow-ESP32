@@ -12,7 +12,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 
 1. Download https://www.skyynet.de/ftp/mspitzel_v105.zip
 2. Unzip
-3. Modify def_ssid and def_pass to match your WIFI's SSID and password in src/mspitzelAPconnect.ino
+3. Modify WLAN_local_SSID and WLAN_local_password to match your WIFI's SSID and password in src/mspitzelAPconnect.ino
 4. Modify http_username and http_password to what you want
 5. Load it in the Arduino IDE with the following
 <details>

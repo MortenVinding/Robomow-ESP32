@@ -36,7 +36,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 11. Go to the Configuration tab and input your robots bluetooth name under "SSID" and the [mainboard serial number](MBSERIAL.md) under "Mainboard SN"
 12. Now it should connect to your robot and show all kinds of data.
 
-## To add it to Home Assisntant:
+## To add it to Home Assistant:
 <img src="images/homeassistant.png" width=50% height=50%>
 
 Copy robomow.yaml to config/packages/robomow.yaml  

@@ -5,7 +5,7 @@
 
 /*
 By default, this script creates an AP and a new WiFi network.
-The default network name is "Mspitzel" and the WiFi password is "Mspitzel007" (without quotes).
+The default network name is "Robomow" and the WiFi password is "R0b0M0w." (without quotes).
 
 If you provide the SSID/password information for your local WiFi network, the script first tries to connect to your
 existing local WiFi network as a client. If successful, the local WiFi access data is stored in the EEPROM.
@@ -64,11 +64,11 @@ void setup(void) {
   Serial.println();
 
   /* Clear EEPROM */
-  Serial.print("Lösche EEPROM-Inhalt...");
+  Serial.print("Erasing EEPROM contents...");
   EEPROM.begin(eeprom_allocated_mem);
   
   #define EVENTLOG_ADR 1024
-  //for (int i = 0; i < EVENTLOG_ADR; ++i) { // Einsatzprotokoll nicht löschen
+  //for (int i = 0; i < EVENTLOG_ADR; ++i) { // Do not delete the mission log
   for (int i = 0; i < eeprom_allocated_mem; ++i) { 
       EEPROM.write(i, 0); 
   }
@@ -78,17 +78,17 @@ void setup(void) {
   EEPROM.put(eeprom_login_credentials_base, http_username);
   EEPROM.put(eeprom_login_credentials_base +  LOGIN_CREDENTIALS_LENGTH_MAX, http_password);
 
-  Serial.println("Einrichten des Firmware-Uploads...");
+  Serial.println("Setting up the firmware upload...");
   
   if (!Local_WLAN_Connect()) {
-    /* Standardverhalten - spawn access point */
+    /* Default behavior - spawn access point */
     WiFi.mode(WIFI_AP);
     WiFi.setHostname(host);
     WiFi.softAP(def_ssid, def_pass);
-    Serial.printf("Erstellter WLAN-Zugangspunkt mit WLAN SSID %s\n",def_ssid);
+    Serial.printf("Created WLAN access point with WLAN SSID %s\n",def_ssid);
     /* lokale IP */
     local_ip = WiFi.softAPIP();
-    Serial.printf("\n>>> Verbindung zum WiFi-Netzwerk \"%s\" mit Kennwort \"%s\"\n\n",def_ssid, def_pass);
+    Serial.printf("\n>>> Connecting to the WiFi network \"%s\" with password \"%s\"\n\n",def_ssid, def_pass);
   }
   
   EEPROM.commit();
@@ -163,6 +163,6 @@ boolean Local_WLAN_Connect() {
       }
     }
   }
-  Serial.println("...unable to establish a connection"); // zum Standardverhalten zurückkehren
+  Serial.println("...unable to establish a connection"); // return to default behavior
   return false;
 }

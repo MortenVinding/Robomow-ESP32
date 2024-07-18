@@ -1,6 +1,7 @@
 # Add to or create a secrets.yaml file in the config dir and put:
 # robomow_user: <username>
 # robomow_pass: <password>
+# Change all IP addresses in the rest_commands to the IP adress of your ESP
 
 switch:
   - platform: template
@@ -78,7 +79,7 @@ sensor:
       - "blesw"
       - "cBLEsw"
       - "rssi"
-    value_template: "{{ value_robomow.x }}"
+    value_template: "Robomow"
 
   - platform: rest
     authentication: basic
@@ -90,7 +91,7 @@ sensor:
       - "50"
     method: GET
     scan_interval: 3600
-    value_template: "{{ value_robomow.once }}"
+    value_template: "Robomow Once"
 
   - platform: rest
     authentication: basic
@@ -107,7 +108,7 @@ sensor:
     resource: http://192.168.0.133/console
     method: GET
     scan_interval: 5
-    value_template: "{{ value_robomow.x }}"
+    value_template: "Robomow Console"
 
   - platform: template
     sensors:
@@ -147,3 +148,139 @@ sensor:
         friendly_name: "WiFi rssi"
         unit_of_measurement: "dBm"
         value_template: "{{state_attr('sensor.robomow', 'rssi') }}"
+
+script:
+  robomow_ble_off2:
+    alias: Robomow BLE Off
+    sequence:
+    - service: rest_command.robomowbleoff
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    mode: single
+  robomow_ble_on:
+    alias: Robomow BLE On
+    sequence:
+    - service: rest_command.robomowbleon
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    mode: single
+  robomow_flaeche:
+    alias: Robomow Flaeche
+    sequence:
+    - service: rest_command.robomowflaeche
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    mode: single
+  robomow_stop:
+    alias: Robomow Stop
+    sequence:
+    - service: rest_command.robomowstop
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    mode: single
+  robomow_home:
+    alias: Robomow Home
+    sequence:
+    - service: rest_command.robomowhome
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    mode: single
+  robomow_kante:
+    alias: Robomow Kante
+    sequence:
+    - service: rest_command.robomowkante
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    mode: single
+  robomow_renew:
+    alias: Robomow Renew
+    sequence:
+    - service: homeassistant.update_entity
+      target:
+        entity_id:
+        - sensor.robomow
+        - sensor.robomow_once
+    mode: single
+  robomowweekoff:
+    alias: RobomowWeekOFF
+    sequence:
+    - service_template: "{% if not is_state_attr('sensor.robomow', 'cBLEsw', 'lightgreen')\
+        \ %}\n    script.robomow_ble_on        \n{% else %}\n    script.robomow_renew\n\
+        {% endif %}\n"
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 3
+        milliseconds: 0
+    - service: rest_command.robomowweekoff
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 4
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id:
+        - sensor.robomow_once
+    mode: single
+  robomowweekon2:
+    alias: RobomowWeekON
+    sequence:
+    - service_template: "{% if not is_state_attr('sensor.robomow', 'cBLEsw', 'lightgreen')\
+        \ %}\n    script.robomow_ble_on        \n{% else %}\n    script.robomow_renew\n\
+        {% endif %}\n"
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 3
+        milliseconds: 0
+    - service: rest_command.robomowweekon
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 5
+        milliseconds: 0
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.robomow
+    - service: homeassistant.update_entity
+      target:
+        entity_id:
+        - sensor.robomow_once
+    mode: single

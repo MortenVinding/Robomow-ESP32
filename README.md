@@ -12,7 +12,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 
 1. Download https://www.skyynet.de/ftp/mspitzel_v105.zip
 2. Unzip
-3. Modify def_ssid and def_pass to match your WIFI's SSID and password in src/mspitzelAPconnect.ino
+3. Modify WLAN_local_SSID and WLAN_local_password to match your WIFI's SSID and password in src/mspitzelAPconnect.ino
 4. Modify http_username and http_password to what you want
 5. Load it in the Arduino IDE with the following
 <details>
@@ -36,7 +36,7 @@ Since there is only a binary file, I have made a ugly script that simply replace
 11. Go to the Configuration tab and input your robots bluetooth name under "SSID" and the [mainboard serial number](MBSERIAL.md) under "Mainboard SN"
 12. Now it should connect to your robot and show all kinds of data.
 
-## To add it to Home Assisntant:
+## To add it to Home Assistant:
 <img src="images/homeassistant.png" width=50% height=50%>
 
 Copy robomow.yaml to config/packages/robomow.yaml  

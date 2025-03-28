@@ -12,14 +12,17 @@ sed -i "" 's|AP Mode gestartet|AP Mode started  |g' $TRFILE
 sed -i "" 's|Update: %s|Update: %s|g' $TRFILE
 sed -i "" 's|Update Erfolgreich: %u|Update Successful : %u|g' $TRFILE
 sed -i "" 's|Aufw..rmphase kein Drahtsignal|Warm-up phase; no wire signal |g' $TRFILE
+sed -i "" 's|M..hmotor-..berstrom/-Abschaltung in Ladestation|Mowermotor-Overcurrent/Switch off in Chg.Station|g' $TRFILE
 sed -i "" 's|Neustart\.\.\.|Restart \.\.\.|g' $TRFILE
 sed -i "" 's|Scan Ergebnis:|Scan Results :|g' $TRFILE
 sed -i "" 's|Sende Kommando zum M..her|Allow control mower      |g' $TRFILE
+sed -i "" 's|..ndern von Einstellungen nur m..glich,<br> wenn BLE eingeschaltet ist\!|Changing of settings is only possible, <br> when BLE is enabled\!       |g' $TRFILE
 sed -i "" 's|Gefunden Roboter-BLE:|Found Robot-BLE     :|g' $TRFILE
 sed -i "" 's|Fehler Mailversand,|Error sending mail,|g' $TRFILE
 sed -i "" 's|M..hzeit abgeschlossen|Mowing time completed |g' $TRFILE
 sed -i "" 's|Gehe zur Station per App\.|Go to station via App    |g' $TRFILE
 sed -i "" 's|Akkukapazit..t Zeit..berschreitung|Battery capacity time exceeded    |g' $TRFILE
+sed -i "" 's|Drehrichtung nur in Basisstation blau ..nderbar\!|Rotation direction only changeable in basestatio|g' $TRFILE
 sed -i "" 's|Akku l..dt/balanciert|Battery balancing    |g' $TRFILE
 sed -i "" 's|Akku l..dt|Charging  |g' $TRFILE
 sed -i "" 's|Vorderrad Problem|FrontwheelProblem|g' $TRFILE
@@ -189,7 +192,7 @@ sed -i "" 's|<br>Kein oder schlechter Sattelitenempfang\.|<br>No or poor satelli
 sed -i "" 's|<br>GPS Geschwindigkeit :|<br>GPS Speed           :|g' $TRFILE
 sed -i "" 's|Abstand zur Basis :|Distance to Base  :|g' $TRFILE
 sed -i "" 's|Festsitzender Standort zu nahe am vorherigen Standort, keine Benachrichtigung\.\.\.|Stuck location too close to previous location, not notifying                 \.\.\.|g' $TRFILE
-sed -i "" 's|Roboter scheint stecken geblieben zu sein!|Roboter scheint stecken geblieben zu sein!|g' $TRFILE
+sed -i "" 's|Roboter scheint stecken geblieben zu sein\!|Mower might be stuck!                     |g' $TRFILE
 sed -i "" 's|Roboter bewegt sich wieder\.|Roboter bewegt sich wieder\.|g' $TRFILE
 sed -i "" 's|Benachrichtigungstest|Benachrichtigungstest|g' $TRFILE
 sed -i "" 's|Kopiere Einsatzprotokoll zur SD-Card|Kopiere Einsatzprotokoll zur SD-Card|g' $TRFILE
@@ -297,7 +300,7 @@ sed -i "" 's|Rettung Rand|Rettung Rand|g' $TRFILE
 sed -i "" 's|Breite|Width |g' $TRFILE
 sed -i "" 's|Abstand|Distanc|g' $TRFILE
 sed -i "" 's|Aktuelle Zone :|Current  Zone :|g' $TRFILE
-sed -i "" 's|In Ladestation|In Ladestation|g' $TRFILE
+sed -i "" 's|In Ladestation|In Basestatio\n|g' $TRFILE
 sed -i "" 's|Kantenmodus|Edge Mow   |g' $TRFILE
 sed -i "" 's|Kindersicherung|Child Lock     |g' $TRFILE
 sed -i "" 's|Diebstahlschutz|Anti-Theft     |g' $TRFILE
